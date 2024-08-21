@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em yêu có muốn đi ăn với anh không?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #no {
+            position: relative;
+        }
+        #question {
+            font-size: 24px;
+        }
+        #question span {
+            cursor: pointer;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 id="question">Mày có thể cho tao 1000$ xài được <span id="noText">không</span>?</h1>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+        const noText = document.getElementById('noText');
+        let clickCount = 0;
+        let textClickCount = 0;
+
+        yesButton.addEventListener('click', function() {
+            alert('Ngon, gửi tới 951-460-9793 nha');
+        });
+
+        noButton.addEventListener('click', function() {
+            clickCount++;
+            if (clickCount < 3) {
+                noButton.style.fontSize = "16px";
+                noButton.style.position = "absolute";
+                noButton.style.top = `${Math.random() * 80}%`;
+                noButton.style.left = `${Math.random() * 80}%`;
+            } else {
+                noButton.textContent = "Yes";
+                noButton.style.position = "static";
+                noButton.style.margin = "10px";
+                noButton.addEventListener('click', function() {
+                    alert('Ngon, gửi tới 951-460-9793 nha');
+                });
+            }
+        });
+
+        noText.addEventListener('click', function() {
+            textClickCount++;
+            if (textClickCount < 3) {
+                noText.style.position = "absolute";
+                noText.style.top = `${Math.random() * 80}%`;
+                noText.style.left = `${Math.random() * 80}%`;
+            } else {
+                noText.textContent = "Yes";
+                noText.style.color = "black";
+                noText.style.position = "static";
+                noText.addEventListener('click', function() {
+                    alert('Ngon, gửi tới 951-460-9793 nha');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
